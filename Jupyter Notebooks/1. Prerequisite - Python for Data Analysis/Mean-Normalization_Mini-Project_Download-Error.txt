@@ -1,0 +1,5 @@
+Hello, I downloaded **Mean Normalization and Data Separation.ipynb** from [https://github.com/udacity/AIPND/tree/master/NumPy%20Mini-Project](https://github.com/udacity/AIPND/tree/master/NumPy%20Mini-Project), but the following error message appeared when I tried to open the file in a Jupyter Notebook:
+
+> "Unreadable Notebook: C:\Users\Christophe\Documents\Informatique\MOOC\Data Scientist Nanodegree - Udacity\Jupyter Notebooks\Mean Normalization and Data Separation.ipynb NotJSONError("Notebook does not appear to be JSON: '\\n\\n\\n\\n\\n\\n<!DOCTYPE html>\\n<html lang...")"
+
+Any suggestions? Thanks.
