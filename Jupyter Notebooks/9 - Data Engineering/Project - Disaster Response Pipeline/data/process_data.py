@@ -74,7 +74,7 @@ def save_data(df, database_filename):
      - df: the Disaster Relief DataFrame (Messages + Categories)
      - database_filename: the URL to the SQLite database
     '''
-    engine = create_engine(database_filename)
+    engine = create_engine('sqlite:///{}'.format(database_filename))
     df.to_sql('Bunn_DisasterResponse', engine, if_exists='replace', index=False)
 
 
