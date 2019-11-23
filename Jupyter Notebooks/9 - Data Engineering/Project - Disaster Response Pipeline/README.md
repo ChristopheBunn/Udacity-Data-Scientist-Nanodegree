@@ -6,7 +6,7 @@ In the context of the **[Udacity Data Scientist Nanodegree](https://classroom.ud
 ## Component Files and Data Structure
 The application code was originally elaborated within the 2 Jupyter Notebooks **ETL Pipeline Preparation.ipynb** and **ML Pipeline Preparation.ipynb**.
 * **app**
-  * **run.py**: retrieves the clean data from a previously created SQLite database (*cf* **process_data.py**), loads a previously trained model from a pickle file (*cf* **train_classifier.py**) and executes it on a user-entered phrase, relative to some kind of disaster (my example: "*Help! My house is burning despite the pouring rain; we have no electricity and fear a shortage of food!*").
+  * **run.py**: retrieves the clean data from a previously created SQLite database (*cf* **process_data.py**), loads a previously trained model from a pickle file (*cf* **train_classifier.py**) and executes it on a user-entered phrase, relative to some kind of disaster (my example: "*Help! My house is burning despite the pouring rain; we have no electricity and fear a shortage of food!*"). It also passes the plot-related data to **master.html**.
   * **templates**
     * **go.html** and **master.html** display a Web page with a form for submitting the text message, a plot with the distribution of the data used to train and test the model, and a table with the resulting categories matching the messsage.
 * **data**
