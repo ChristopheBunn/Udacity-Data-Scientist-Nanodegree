@@ -42,29 +42,63 @@ model = joblib.load("../models/classifier.pkl")
 @app.route('/index')
 def index():
     
-    # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
+    # Extract data needed for visuals.
+    # Add to the "genre" status whether the message is "related" to Disaster Response.
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+    genre_related_counts = df[df['related'] == 1].groupby('genre').count()['message']
+    genre_unrelated_counts = df[df['related'] == 0].groupby('genre').count()['message']
     
-    # create visuals
-    # TODO: Below is an example - modify to create your own visuals
+    # Category counts data (keep only 0/1 numeric features, i.e., categories):
+    category_percent = df.drop(['id', 'message', 'original', 'genre'], axis=1).sum()/len(df)*100
+    category_percent = category_percent.sort_values(ascending=False)
+    category_labels = list(category_percent.index)
+    
+    # Create visuals
+    # - Incorporate the "related" feature to the existing "genre" plot.
+    # - Add a plot with percentage of "categories"
     graphs = [
         {
             'data': [
                 Bar(
                     x=genre_names,
-                    y=genre_counts
+                    y=genre_related_counts,
+                    name = 'Related'
+                ),
+                Bar(
+                    x=genre_names,
+                    y=genre_unrelated_counts,
+                    name = 'Unrelated'
                 )
             ],
 
             'layout': {
-                'title': 'Distribution of Message Genres',
+                'title': 'Distribution of Message Genres (related and unrelated to Disaster Response)',
                 'yaxis': {
                     'title': "Count"
                 },
                 'xaxis': {
-                    'title': "Genre"
+                    'title': "Genre & Related"
+                },
+                'barmode': 'group'
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=category_labels,
+                    y=category_percent
+                )
+            ],
+
+            'layout': {
+                'title': 'Categories (% total messages)',
+                'yaxis': {
+                    'title': "%"
+                },
+                'xaxis': {
+                    'title': "Categories",
+                    'tickangle': -30
                 }
             }
         }
