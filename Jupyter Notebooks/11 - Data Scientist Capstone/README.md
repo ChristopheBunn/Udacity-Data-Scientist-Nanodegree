@@ -20,10 +20,15 @@ The Python and Spark libraries used throughout the Jupyter Notebook are:
    - pyspark.ml.tuning.**CrossValidator**, **ParamGridBuilder**
  - **Sparkify_Bunn_v1.html** for visualizing the Jupyter Notebook *via* a simple browser.
 
-## Motivation ##
+## Definition ##
+This **Capstone Project** is inspired from the extracurricular [Capstone Content - Spark](https://classroom.udacity.com/nanodegrees/nd025/parts/3e1c3447-39e1-476e-a5f3-8822fa52f9a3) course.
+
+The goal is to familiarize onself with the **[Apache Sparks](https://spark.apache.org/) Analytics Engine for Large-Scale Data Processing** through the development of a **Churn Prediction** engine. In the context of a fictitious **Sparkify** music streaming online service, the task is to prevent churning (*e.g.*, users downgrading or cancelling the service) by analyzing users' behavior. It's a case of **Supervised Learning**.
+
+## Analysis ##
 
 
-## Summary of the Results ##
+## Conclusion ##
 
 
 ## Related Blog Post ##
