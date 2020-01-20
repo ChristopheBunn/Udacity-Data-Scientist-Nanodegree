@@ -26,10 +26,18 @@ This **Capstone Project** is inspired from the extracurricular [Capstone Content
 The goal is to familiarize onself with the **[Apache Sparks](https://spark.apache.org/) Analytics Engine for Large-Scale Data Processing** through the development of a **Churn Prediction** engine. In the context of a fictitious **Sparkify** music streaming online service, the task is to prevent churning (*e.g.*, users downgrading or cancelling the service) by analyzing users' behavior. It's a case of **Supervised Learning**.
 
 ## Analysis ##
-
+The Jupyter Notebook **Sparkify_Bunn_v1.ipynb** is organized in the following sections:
+- **Loading and Cleaning the Dataset**: for the purpose of initially running the Jupyter Notebook on a local machine, the dataset is a 128 MB subset of a 12 GB dataset available in AWS. The JSON file contained records devoid of any user ID - useless for the purpose of analyzing user behavior - which I removed, as well as other features I did not intend to make use of initially.
+- **Exploratory Data Analysis** was performed on the remaining features, to validate their potential use as **predictors** of **churn**, including using **histograms** for comparing **churning** and **loyal** (*i.e.*, non-churning) users' behaviors; plotted features include but are not limited to **tasks performed**, **gender**, **time/day**, etc.
+- **Feature Engineering**: created aggregate features by session and then by user, one-hot encoding categorical features, scaling numeric features, and vectorizing all, which resulted in a 2-column Spark DataFrame with the **churn/no-churn** **'*label*'** and the **vector** **'*features*'**.
+- **Modeling**: tested 4 **Machine Learning** algorithms using Grid-Search Cross-Validation (sort of... wrote the code but kept default values for local PC performance reasons):
+    - **Linear Regression**
+    - **Decision Tree**
+    - **Random Forest**
+    - **Gradient Boosted Tree**
 
 ## Conclusion ##
-
+**Linear Regression** yielded an **F1 score** of **90 %** on the **test** data and **85 %** on the **validation** data, which is pretty good. But the results of the other 3 models seems too good to be true and identical: **98 %** on the **test** data and **97 %** on the **validation** data! Working with the large dataset in a **cluster** should help me figure out if these results are legitimate and reproducible with much more data or if there's something *fishy* with my code...
 
 ## Related Blog Post ##
 The findings of the analysis contained in the Jupyter Notebook are the subject of a blog post on Medium: [???](https://medium.com/@gers32/???).
