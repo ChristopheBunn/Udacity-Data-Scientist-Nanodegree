@@ -38,7 +38,7 @@ The Jupyter Notebook **Sparkify_Bunn_v1.ipynb** is organized in the following se
 
 ## Conclusion ##
 ### Final Results ###
-**Linear Regression** yielded an **F1 score** of **90 %** on the **test** data and **85 %** on the **validation** data, which is very good. The results of the 3 **Tree-based** models are even better, but oddly identical: **98 %** on the **test** data and **97 %** on the **validation** data! I look forward to working with the full dataset in a Spark cluster to figure out if these results are reproducible with much more data. Indeed, I feature-engineered the dataset down to only 225 records (*i.e.*, individual users), which is clearly not very many, especially considering that only 141 of those are used for training, 50 for testing, and 34 for validation.
+**Logistic Regression** yielded an **F1 score** of **90 %** on the **test** data and **85 %** on the **validation** data, which is very good. The results of the 3 **Tree-based** models are even better, but oddly identical: **98 %** on the **test** data and **97 %** on the **validation** data! I look forward to working with the full dataset in a Spark cluster to figure out if these results are reproducible with much more data. Indeed, I feature-engineered the dataset down to only 225 records (*i.e.*, individual users), which is clearly not very many, especially considering that only 141 of those are used for training, 50 for testing, and 34 for validation.
 
 One possible explanation for the matching F1 scores could be the fact that all 3 algorithms are tree-based and Decision Tree and Random Forest share the same hyper-parameter values.
 ### Reflection ###
