@@ -50,6 +50,7 @@ After I've submitted my Capstone Project in time for the upcoming deadline, I'll
  - Migrate the Jupyter Notebook to a clustered Spark environment (*e.g.*, Amazon S3, IBM Watson);
  - Work on the entire data set;
  - Enrich the feature set (*e.g.*, time-series: rolling time windows for differentiating recent and older in-session behaviors, to spot their evolution which could foreshadow potential churning);
+ - Dimensionality Reduction, such as Principal Component Analysis (PCA);
  - Refactor the code into Classes and Methods (it wasn't done here in particular for visualizing the data at each step);
  - Save the resulting DataFrames into a distributed file system (*e.g.*, HDFS, S3) at various points, so that I don't have to re-execute the entire Jupyter Notebook every time I make a modification downstream;
  - Do some real Cross-Validation with various sets of parameters and isolate the best algorithm(s) for further fine-tuning;
