@@ -37,7 +37,23 @@ The Jupyter Notebook **Sparkify_Bunn_v1.ipynb** is organized in the following se
     - **Gradient Boosted Tree**
 
 ## Conclusion ##
-**Linear Regression** yielded an **F1 score** of **90 %** on the **test** data and **85 %** on the **validation** data, which is pretty good. But the results of the other 3 models seem too good to be true and are identical to each other: **98 %** on the **test** data and **97 %** on the **validation** data! Working with the large dataset in a **cluster** should help me figure out if these results are legitimate and reproducible with much more data or if there's something *fishy* with my code...
+### Final Results ###
+**Linear Regression** yielded an **F1 score** of **90 %** on the **test** data and **85 %** on the **validation** data, which is very good. The results of the 3 **Tree-based** models are even better, but oddly identical: **98 %** on the **test** data and **97 %** on the **validation** data! I look forward to working with the full dataset in a Spark cluster to figure out if these results are reproducible with much more data. Indeed, I feature-engineered the dataset down to only 225 records (*i.e.*, individual users), which is clearly not very many, especially considering that only 141 of those are used for training, 50 for testing, and 34 for validation.
+
+One possible explanation for the matching F1 scores could be the fact that all 3 algorithms are tree-based and Decision Tree and Random Forest share the same hyper-parameter values.
+### Reflection ###
+Using Spark for Machine Learning instead of scikit-learn that I'm more familiar with was a challenge. Data cleaning and exploration are rather straightforward, but I found feature engineering much more difficult to master. Vectorization in particular can be off-setting, in particular due to the inability at this point to interpret the data. This requires that the data has been thoroughly understood during the previous phases.
+
+The Machine Learning phase of this entire project only took maybe 5 % of my time, in accordance with the general consensus among Data Science professionals. But this for me is the most interesting part and I intend to dig deeper into the immense possibilities offered by testing the various algorithms and spending more time fine-tuning them.
+### Next Steps ###
+After I've submitted my Capstone Project in time for the upcoming deadline, I'll do the following:
+ - Migrate the Jupyter Notebook to a clustered Spark environment (*e.g.*, Amazon S3, IBM Watson);
+ - Work on the entire data set;
+ - Enrich the feature set (*e.g.*, time-series: rolling time windows for differentiating recent and older in-session behaviors, to spot their evolution which could foreshadow potential churning);
+ - Refactor the code into Classes and Methods (it wasn't done here in particular for visualizing the data at each step);
+ - Save the resulting DataFrames into a distributed file system (*e.g.*, HDFS, S3) at various points, so that I don't have to re-execute the entire Jupyter Notebook every time I make a modification downstream;
+ - Do some real Cross-Validation with various sets of parameters and isolate the best algorithm(s) for further fine-tuning;
+ - Experiment with additional Classification and Cross-Validation methods.
 
 ## Related Blog Post ##
 The findings of the analysis contained in the Jupyter Notebook are the subject of a blog post on Medium: [Sparkify versus the evil Dr. Churn](https://medium.com/@gers32/sparkify-versus-the-evil-dr-churn-8e1442e3a722).
